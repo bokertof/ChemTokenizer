@@ -18,13 +18,13 @@ class ChemTokenizer():
                  'Te', 'Mo', 'Pd', 'Eu', 'O', '4', 'Y', '#', 'Pu', 'Cl', 'Ne', 'Mn', 'Zn',
                 'Sm', 'Hg', '/', 'Re', 'o', 'se', 'K', 'te', 'As', 'Ge', 'Ce', 'Ag', 'W',
                  '\\', 'Tb', 'Zr', '7', 'F', 'c', '[', 'Ti', '+', 'Tl', 'Ho', 'Xe', 'Si',
-                 'Cu', 'Yb', '.', ')', 'Sr', 'Er', 'He', '0', 'Pr', 'C', 'Pt', 'Ga', 'Cd',
+                 'Cu', '.', ')', 'Sr', 'Er', 'He', '0', 'Pr', 'C', 'Pt', 'Ga', 'Cd',
                  'Fe', 'Rh', 'Br', 'At', 'S', 'Al', 'Li', '5', '9', 'Ir', 'Cm', '3', 'Dy',
                  '6', 'Ca', 'Am', '2', '(', 'Ru', '%', 'Pa', 'Tc', '=', 'Se', 'Tm', 'Lu',
                  ']', 'La', 'Ni', 'n', 'H', 'D'}
 
-        complicated = {'Po', 'Sb', 'sb', 'Rb', 'Np', 'Nb', 'Sc', 'sc', 'Pb',
-                      'pb', 'Sn', 'sn' 'Co', 'Cs', 'In', 'in', 'Os', 'os'}
+        complicated = {'Yb', 'Po', 'Sb', 'sb', 'Rb', 'Np', 'Nb', 'Sc', 'sc', 'Pb',
+                      'pb', 'Sn', 'sn', 'Co', 'Cs', 'In', 'in', 'Os', 'os'}
 
         if atoms_list:
             self.atoms = set(atoms_list)
@@ -172,7 +172,3 @@ class ChemTokenizer():
             new_SMILES.append(self.tokenize(SMILES, check))
 
         return new_SMILES
-
-
-
-
