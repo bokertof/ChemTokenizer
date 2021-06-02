@@ -36,8 +36,8 @@ class ChemTokenizer:
         else:
             self.other = complicated
 
-
-    def _to_check(self, result, SMILES):
+    @staticmethod
+    def _to_check(result, SMILES):
         
         """
         :param: tokenized SMILES
@@ -92,8 +92,8 @@ class ChemTokenizer:
         return new_SMILES
     
 
-
-    def randomize(self, SMILES_list, random_number = 30, max_iter = 500):
+    @staticmethod
+    def randomize(SMILES_list, random_number = 30, max_iter = 500):
 
         """
         :param: src list of SMILES sequences
@@ -129,8 +129,8 @@ class ChemTokenizer:
 
 
 
-
-    def standardizer(self, SMILES_list):
+    @staticmethod
+    def standardizer(SMILES_list):
 
         """
         :param: src list of SMILES sequences
