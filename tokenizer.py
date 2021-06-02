@@ -3,36 +3,36 @@ from rdkit import Chem
 
 from molvs.standardize import Standardizer, standardize_smiles
 from molvs.charge import Reionizer, Uncharger
-from molvs.standardize import standardize_smiles
 
 
 
 
 
-class ChemTokenizer():
 
-    def __init__(self, atoms_list = None, other_atoms_list = None):
+class ChemTokenizer:
 
-        atoms = {'Ac', 'Bi', 'Be', '-', 'V', 'Ta', 'Ba', 'Nd', 'p', 'I', 'B', 'Gd',
-                 'Mg', '1', 'U', 'Au', '8', 'Th', 'N', 'b', 'Na', 'Cr', 'P', 's', 'Hf',
-                 'Te', 'Mo', 'Pd', 'Eu', 'O', '4', 'Y', '#', 'Pu', 'Cl', 'Ne', 'Mn', 'Zn',
-                'Sm', 'Hg', '/', 'Re', 'o', 'se', 'K', 'te', 'As', 'Ge', 'Ce', 'Ag', 'W',
-                 '\\', 'Tb', 'Zr', '7', 'F', 'c', '[', 'Ti', '+', 'Tl', 'Ho', 'Xe', 'Si',
-                 'Cu', '.', ')', 'Sr', 'Er', 'He', '0', 'Pr', 'C', 'Pt', 'Ga', 'Cd',
-                 'Fe', 'Rh', 'Br', 'At', 'S', 'Al', 'Li', '5', '9', 'Ir', 'Cm', '3', 'Dy',
-                 '6', 'Ca', 'Am', '2', '(', 'Ru', '%', 'Pa', 'Tc', '=', 'Se', 'Tm', 'Lu',
-                 ']', 'La', 'Ni', 'n', 'H', 'D'}
+    def __init__(self, atoms_list=None, other_atoms_list=None):
 
-        complicated = {'Yb', 'Po', 'Sb', 'sb', 'Rb', 'Np', 'Nb', 'Sc', 'sc', 'Pb',
-                      'pb', 'Sn', 'sn', 'Co', 'Cs', 'In', 'in', 'Os', 'os'}
+        atoms = [{'Ac', 'Bi', 'Be', 'Ta', 'Ba', 'Nd', 'Gd', 'Mg', 'Au', 'Th', 'Na', 'Cr', 'Hf',
+                 'Te', 'Mo', 'Pd', 'Eu', 'Pu', 'Cl', 'Ne', 'Mn', 'Zn', 'Sm', 'Hg', 'Re', 'se',
+                  'te', 'As', 'Ge', 'Ce', 'Ag', 'Tb', 'Zr', 'Ti', 'Tl', 'Xe', 'Si', 'Cu', 'Sr',
+                  'Er', 'He', 'Pr', 'Pt', 'Ga', 'Cd', 'Fe', 'Rh', 'Br', 'At', 'Al', 'Li', 'Ir',
+                  'Cm', 'Dy', 'Ca', 'Am', 'Ru', 'Pa', 'Tc', 'Se', 'Tm', 'Lu', 'La', 'Ni', 'in',
+                  'Ar', 'Kr'},
+                 {'C', '-', 'V', 'p', 'I', 'B', '1', 'U', '8', 'N', 'b', 'P', 's', 'O', '4', 'Y', '#',
+                  'n', 'H', 'D', '/', '\\', 'o', 'K', '7', 'F', 'c', '[', ']', '+', '.', ')', '0', '5',
+                  '9', 'S', '2', '(', '6', '%', '=', '3', 'W', '@', '*', '$'}]
+
+        complicated = {'Yb', 'Ho', 'Po', 'Sb', 'sb', 'Rb', 'Np', 'Nb', 'Sc', 'sc', 'Pb',
+                       'pb', 'Sn', 'sn', 'Co', 'Cs', 'In', 'Os', 'os', 'No'}
 
         if atoms_list:
-            self.atoms = set(atoms_list)
+            self.atoms = atoms_list
         else:
             self.atoms = atoms
 
         if other_atoms_list:
-            self.other = set(other_atoms_list)
+            self.other = other_atoms_list
         else:
             self.other = complicated
 
@@ -72,10 +72,10 @@ class ChemTokenizer():
                         result.append('[')
                         j+=1
 
-                elif SMILES[j:j+2] in self.atoms:
+                elif SMILES[j:j+2] in self.atoms[0]:
                     result.append(SMILES[j:j+2])
                     j+=2
-                elif SMILES[j] in self.atoms:
+                elif SMILES[j] in self.atoms[1]:
                     result.append(SMILES[j])
                     j+=1
                 else:
