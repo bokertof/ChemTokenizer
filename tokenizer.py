@@ -129,8 +129,6 @@ class ChemTokenizer:
 
         """
         :param: src list of SMILES sequences
-        :param: number how many random SMILES will be generated
-        :param: number how many iterations will be
         
         """
 
