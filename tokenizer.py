@@ -8,18 +8,19 @@ class ChemTokenizer:
 
     def __init__(self, atoms_list=None, other_atoms_list=None):
 
-        atoms = [{'Ac', 'Bi', 'Be', 'Ta', 'Ba', 'Nd', 'Gd', 'Mg', 'Au', 'Th', 'Na', 'Cr', 'Hf',
-                 'Te', 'Mo', 'Pd', 'Eu', 'Pu', 'Cl', 'Ne', 'Mn', 'Zn', 'Sm', 'Hg', 'Re', 'se',
-                  'te', 'As', 'Ge', 'Ce', 'Ag', 'Tb', 'Zr', 'Ti', 'Tl', 'Xe', 'Si', 'Cu', 'Sr',
-                  'Er', 'He', 'Pr', 'Pt', 'Ga', 'Cd', 'Fe', 'Rh', 'Br', 'At', 'Al', 'Li', 'Ir',
-                  'Cm', 'Dy', 'Ca', 'Am', 'Ru', 'Pa', 'Tc', 'Se', 'Tm', 'Lu', 'La', 'Ni', 'in',
-                  'Ar', 'Kr'},
-                 {'C', '-', 'V', 'p', 'I', 'B', '1', 'U', '8', 'N', 'b', 'P', 's', 'O', '4', 'Y', '#',
-                  'n', 'H', 'D', '/', '\\', 'o', 'K', '7', 'F', 'c', '[', ']', '+', '.', ')', '0', '5',
-                  '9', 'S', '2', '(', '6', '%', '=', '3', 'W', '@', '*', '$', ':'}]
+        atoms = [{'Ac', 'Ag', 'Al', 'Am', 'Ar', 'As', 'At', 'Au', 'Ba', 'Be', 'Bi', 'Bk', 'Br', 'Ca', 'Cd',
+                  'Ce', 'Cf', 'Cl', 'Cm', 'Cr', 'Cu', 'Dy', 'Er', 'Es', 'Eu', 'Fe', 'Fm', 'Fr', 'Ga', 'Gd',
+                  'Ge', 'He', 'Hf', 'Hg', 'Ir', 'Kr', 'La', 'Li', 'Lr', 'Lu', 'Md', 'Mg', 'Mn', 'Mo', 'Na',
+                  'Nd', 'Ne', 'Ni', 'Pa', 'Pd', 'Pm', 'Pr', 'Pt', 'Pu', 'Ra', 'Rb', 'Re', 'Rh', 'Ru', 'Se',
+                  'Si', 'Sm', 'Sr', 'Ta', 'Tb', 'Tc', 'Te', 'Th', 'Ti', 'Tl', 'Tm', 'Xe', 'Zn', 'Zr', 'in',
+                  'se', 'te'},
+                 
+                 {'#', '$', '%', '(', ')', '*', '+', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6',
+                  '7', '8', '9', ':', '=', '@', 'B', 'C', 'D', 'F', 'H', 'I', 'K', 'N', 'O', 'P', 'S',
+                  'U', 'V', 'W', 'Y', '[', '\\', ']', 'b', 'c', 'n', 'o', 'p', 's'}]
 
-        complicated = {'Yb', 'Ho', 'Po', 'Sb', 'sb', 'Rb', 'Np', 'Nb', 'Sc', 'sc', 'Pb',
-                       'pb', 'Sn', 'sn', 'Co', 'Cs', 'In', 'Os', 'os', 'No'}
+        complicated = {'Co', 'Cs', 'Ho', 'In', 'Nb', 'No', 'Np', 'Os', 'Pb', 'Po',
+                       'Sb', 'Sc', 'Sn', 'Yb', 'os', 'pb', 'sb', 'sc', 'sn'}
 
         if atoms_list:
             self.atoms = atoms_list
@@ -44,7 +45,7 @@ class ChemTokenizer:
             return False
 
 
-    def tokenize(self, SMILES_list, check = False):
+    def tokenize(self, SMILES_list, check=False):
         
         """
         :param: src list of SMILES sequences
@@ -88,7 +89,7 @@ class ChemTokenizer:
     
 
     @staticmethod
-    def randomize(SMILES_list, random_number = 30, max_iter = 500):
+    def randomize(SMILES_list, random_number=30, max_iter=500):
 
         """
         :param: src list of SMILES sequences
@@ -150,7 +151,7 @@ class ChemTokenizer:
 
 
 
-    def process(self, SMILES_list, random_number = 30, max_iter = 500, check = False):
+    def process(self, SMILES_list, random_number=30, max_iter=500, check=False):
 
         """
         :param: src list of SMILES sequences
