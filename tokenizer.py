@@ -33,7 +33,7 @@ class ChemTokenizer:
             self.other = complicated
 
     @staticmethod
-    def (result: 'tokenized SMILES', SMILES: 'src SMILES') -> bool:
+    def _to_check(result: 'tokenized SMILES', SMILES: 'src SMILES') -> bool:
         
         """
         Function checks whether tokenization is correct
