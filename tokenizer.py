@@ -6,7 +6,7 @@ from molvs.standardize import Standardizer
 
 class ChemTokenizer:
 
-    def __init__(self, atoms_list=None, other_atoms_list=None):
+    def __init__(self, atoms_list: list = None, other_atoms_list: list = None):
 
         atoms = [{'Ac', 'Ag', 'Al', 'Am', 'Ar', 'As', 'At', 'Au', 'Ba', 'Be', 'Bi', 'Bk', 'Br', 'Ca', 'Cd',
                   'Ce', 'Cf', 'Cl', 'Cm', 'Cr', 'Cu', 'Dy', 'Er', 'Es', 'Eu', 'Fe', 'Fm', 'Fr', 'Ga', 'Gd',
@@ -33,11 +33,10 @@ class ChemTokenizer:
             self.other = complicated
 
     @staticmethod
-    def _to_check(result, SMILES):
+    def (result: 'tokenized SMILES', SMILES: 'src SMILES') -> bool:
         
         """
-        :param: tokenized SMILES
-        :param: src SMILES sequence
+        Function checks whether tokenization is correct
         
         """
         
@@ -45,11 +44,10 @@ class ChemTokenizer:
             return False
 
 
-    def tokenize(self, SMILES_list, check=False):
+    def tokenize(self, SMILES_list: list, check=False) -> list:
         
         """
-        :param: src list of SMILES sequences
-        :param: whether to check tokenized SMILES or not
+        Tokenization of SMILES sequences from src list
         
         """
 
@@ -89,12 +87,11 @@ class ChemTokenizer:
     
 
     @staticmethod
-    def randomize(SMILES_list, random_number=30, max_iter=500):
+    def randomize(SMILES_list: list, random_number: int = 30, max_iter: int = 500) -> list:
 
         """
-        :param: src list of SMILES sequences
-        :param: number how many random SMILES will be generated
-        :param: number how many iterations will be
+        Randomization of each SMILES sequence in the list 
+        in order to generate several SMILES representations for the same molecule
         
         """
 
@@ -126,10 +123,10 @@ class ChemTokenizer:
 
 
     @staticmethod
-    def standardizer(SMILES_list):
+    def standardizer(SMILES_list: list) -> list:
 
         """
-        :param: src list of SMILES sequences
+        Standardization of each SMILES in the list using MolVS package
         
         """
 
@@ -151,10 +148,13 @@ class ChemTokenizer:
 
 
 
-    def process(self, SMILES_list, random_number=30, max_iter=500, check=False):
+    def process(self, SMILES_list: list, random_number: int = 30, max_iter: int = 500, check=False) -> list:
 
         """
-        :param: src list of SMILES sequences
+        A serial of actions over list of SMILES:
+        1) standartization: list of standardized SMILES
+        2) randomization: list of lists of RandomSMILES
+        3) tokenization: list of lists of tokenized SMILES
         
         """
 
